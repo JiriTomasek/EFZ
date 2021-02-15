@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlModel> 
+   <Deliveries>
+      <Delivery>
+         
+         <CustomerId>1</CustomerId>
+         <OrderNumber>0000000002</OrderNumber>
+         <DeliveryNumber>0000000002</DeliveryNumber>
+         
+         <DeliveryDate>2020-11-28T00:00:00</DeliveryDate>
+         
+         
+      </Delivery>
+	  
+   </Deliveries>
+</XmlModel>

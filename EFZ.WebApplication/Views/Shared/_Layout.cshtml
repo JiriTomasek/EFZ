@@ -1,0 +1,131 @@
+﻿
+@using EFZ.Resources
+@using EFZ.WebApplication.Middleware
+@using EFZ.WebApplication.Models.AccountViewModels
+@using Microsoft.CodeAnalysis.CSharp.Syntax
+@model BaseIndexModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EFZ</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link href="~/lib/fontawesome-free/css/all.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/SelectPure.css" rel="stylesheet" />
+    <link href="~/lib/jquery-confirm/css/jquery-confirm.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-default">
+
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EFZ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+
+                <ul class="navbar-nav mr-auto navbar-dark">
+
+
+
+                    @if ((string)ViewData[BaseControllerFilter.ViewDataFlags.IsAdmin] == "true")
+                    {
+                        <li class="nav-item navbar-dark">
+                            <a class="@(Model != null && Model.ActiveController == "Order" ? "nav-link active" : "nav-link")" asp-area="" asp-controller="Order" asp-action="Index">@Labels.valOrder</a>
+                        </li>
+                        <li class="nav-item navbar-dark">
+                            <a class="@(Model != null && Model.ActiveController == "Delivery" ? "nav-link active" : "nav-link")" asp-area="" asp-controller="Delivery" asp-action="Index">@Labels.valDelivery</a>
+                        </li>
+                        <li class="nav-item navbar-dark">
+                            <a class="@(Model != null && Model.ActiveController == "Attachment" ? "nav-link active" : "nav-link")" asp-area="" asp-controller="Attachment" asp-action="Index">@Labels.valAttachment</a>
+                        </li>
+                        <li class="nav-item navbar-dark">
+                            <a class="@(Model != null && Model.ActiveController == "Invoice" ? "nav-link active" : "nav-link")" asp-area="" asp-controller="Invoice" asp-action="Index">@Labels.valInvoices</a>
+                        </li>
+
+
+                        <li class="nav-item navbar-dark">
+                            <a class="@(Model != null && Model.ActiveController == "Completion" && Model.ActiveAction == "Index"  ? "nav-link active" : "nav-link")" asp-area="" asp-controller="Completion" asp-action="Index">@Labels.valCompletation</a>
+                        </li>
+                    }
+                    else if ((string)ViewData[BaseControllerFilter.ViewDataFlags.IsMember] == "true")
+                    {
+                        <li class="nav-item navbar-dark">
+                            <a class="@(Model != null && Model.ActiveController == "Completion"  && Model.ActiveAction == "Customer" ? "nav-link active" : "nav-link")"  asp-area="" asp-controller="Completion" asp-action="Customer">@Labels.valInvoices</a>
+                        </li>
+                    }
+
+
+
+
+                    <li class="nav-item navbar-dark">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                </ul>
+                <partial name="_LoginPartial" />
+
+            </div>
+
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="project-content">
+            <div class="left-content"></div>
+            <div class="right-Content">
+                @RenderBody()
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="modal fade" id="LoginRegisterModalDialog" tabindex="-1" role="dialog">
+
+
+
+    </div>
+
+
+    <div id="divProcessing" class="load-processing">
+        <div class="background-processing"></div>
+        <div class="container-processing">
+            <img src="~/images/ajax-loader.gif">
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - EFZ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/select-pure/dist/bundle.min.js"></script>
+    <script src="~/lib/jquery-confirm/js/jquery-confirm.js"></script>
+
+    <script src="~/lib/table-editing-creation-bootstable/js_plugin/bootstable.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/login.js"></script>
+    <script src="~/js/Settings.js"></script>
+    <script src="~/js/order.js"></script>
+    <script src="~/js/delivery.js"></script>
+    <script src="~/js/attachment.js"></script>
+    <script src="~/js/invoice.js"></script>
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+
+</html>

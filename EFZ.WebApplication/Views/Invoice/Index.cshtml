@@ -1,0 +1,50 @@
+﻿
+@using EFZ.Resources
+@model EFZ.WebApplication.Models.Invoice.InvoiceIndexModel
+@{
+    ViewData["Title"] = @Labels.valInvoices;
+}
+
+<h1>@Labels.valInvoices</h1>
+
+
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.Raw(Labels.valCustomer)</th>
+            <th scope="col">@Html.Raw(Labels.valOrderNumber)</th>
+            <th scope="col">@Html.Raw(Labels.valInvoiceNumber)</th>
+            <th scope="col">@Html.Raw(Labels.valInvoiceDate)</th>
+            <th scope="col">@Html.Raw(Labels.valTotalNet)</th>
+            <th scope="col">@Html.Raw(Labels.valInvoiceDetail)</th>
+            <th scope="col">@Html.Raw(Labels.valInvoiceDonwload)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            int counter = 1;
+            foreach (var invoice in Model.Invoices)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@Html.Raw(invoice.Customer.Name)</td>
+                    <td>@Html.Raw(invoice.OrderNumber)</td>
+                    <td>@Html.Raw(invoice.InvoiceNumber)</td>
+                    <td>@Html.Raw(invoice.InvoiceDate)</td>
+                    <td>@Html.Raw(invoice.ItemsNet)</td>
+                    <td>
+                        <button type="button" class="btn btn-primary invoice-detail-btn" data-url="@Url.Action("InvoiceDetail", "Invoice", new {invoiceId = invoice.Id})" data-title="@Labels.valInvoiceDetail"><i class="fas fa-search"></i></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary invoice-download-btn" data-invoice-id="@invoice.Id" data-file-name="@invoice.InvoiceNumber" ><i class="fas fa-file-download"></i></button>
+                    </td>
+
+                </tr>
+                counter++;
+            }}
+
+    </tbody>
+</table>

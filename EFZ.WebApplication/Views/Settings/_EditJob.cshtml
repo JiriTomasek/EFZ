@@ -1,0 +1,35 @@
+﻿@using EFZ.Resources
+@using Newtonsoft.Json
+@model EFZ.WebApplication.Models.Settings.JobVm
+<div data-role="page">
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</div><div class="modal-header">
+
+</div>
+      <form asp-action="EditJob" asp-controller="Settings">
+          <input asp-for="Id" type="hidden" />
+          <input asp-for="JobName" type="hidden" />
+
+          <input asp-for="IsRun" type="hidden" />
+          @*<input id="RolesIds" type="hidden" />*@
+
+
+          <div class="modal-body">
+
+              <p id="messageToClient" class="text-danger"></p>
+              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div class="form-group">
+                  <label asp-for="Length" class="control-label"></label>
+                  <input asp-for="Length" type="time" class="form-control" />
+                  <span asp-validation-for="Length" class="text-danger"></span>
+              </div>
+
+
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">@Html.Raw(Labels.valClose)</button>
+              <input type="submit" class="btn btn-primary" value="@Html.Raw(Labels.valSave)" />
+          </div>
+      </form>
+

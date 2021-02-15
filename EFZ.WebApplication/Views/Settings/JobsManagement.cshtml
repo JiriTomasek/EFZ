@@ -1,0 +1,100 @@
+﻿@using System.Globalization
+@using EFZ.Resources
+@using Microsoft.Data.SqlClient.DataClassification
+
+@model EFZ.WebApplication.Models.Settings.SettingsModel
+@{
+    ViewData["Title"] = @Labels.valJobs;
+}
+
+<h1>@Labels.valJobs</h1>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.Raw(Labels.valName)</th>
+            <th scope="col">@Html.Raw(Labels.valJobLength)</th>
+            <th scope="col">@Html.Raw(Labels.valStatus)</th>
+            <th scope="col">@Html.Raw(Labels.valLastStart)</th>
+            <th scope="col">@Html.Raw(Labels.valLastStatus)</th>
+            <th scope="col">@Html.Raw(Labels.valAction)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            int counter = 1;
+            foreach (var job in Model.Jobs)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@Html.Raw(job.JobName)</td>
+                    <td>@Html.Raw(job.Length.ToString())</td>
+                    <td>@Html.Raw(job.IsRun ? Labels.valStarted : Labels.valStoped)</td>
+                    <td>@Html.Raw(job.JobSchedulers != null && job.JobSchedulers.Any() ? job.JobSchedulers.Last().JobTime.ToString(CultureInfo.InvariantCulture) : "")</td>
+                    <td>@Html.Raw(job.JobSchedulers != null && job.JobSchedulers.Any() && job.JobSchedulers.Last().Status ? Labels.valSuccess : Labels.valFailed)</td>
+
+                    <td>
+                        <button type="button" class="btn btn-success job-edit-btn" data-title="@Labels.valJobsManage" data-url="@Url.Action("EditJob", "Settings", new {jobId = job.Id})"data-toggle="tooltip" data-placement="top" title="@Labels.valJobEdit" ><i class="fas fa-edit"></i></button>
+
+
+                        <button type="button" class="btn btn-primary job-run-btn" data-url="@Url.Action("StartJob", "Settings",new {jobId = job.Id})" data-toggle="tooltip" data-placement="top" title="@Labels.valJobStart"><i class="far fa-play-circle"></i></button>
+
+                        <button type="button" class="btn btn-primary job-run-btn" data-url="@Url.Action("StopJob", "Settings",new {jobId = job.Id})" data-toggle="tooltip" data-placement="top" title="@Labels.valJobStop"><i class="fas fa-stop-circle"></i></button>
+
+                        <button type="button" class="btn btn-primary job-run-btn" data-url="@Url.Action("RunManuallyJob", "Settings",new {jobId = job.Id})" data-toggle="tooltip" data-placement="top" title="@Labels.valRunJobManually"><i class="fas fa-redo"></i></button>
+
+
+                    </td>
+                </tr>
+
+                counter++;
+            }}
+
+    </tbody>
+</table>
+
+
+<h1>@Labels.valJobs</h1>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.Raw(Labels.valName)</th>
+            <th scope="col">@Html.Raw(Labels.valJobTime)</th>
+            <th scope="col">@Html.Raw(Labels.valLength)</th>
+            <th scope="col">@Html.Raw(Labels.valStatus)</th>
+            <th scope="col">@Html.Raw(Labels.valLog)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            counter = 1;
+            foreach (var job in Model.JobSchedulers)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@Html.Raw(job.Job?.JobName)</td>
+                    <td>@Html.Raw(job.JobTime.ToString(CultureInfo.InvariantCulture))</td>
+
+                    <td>@Html.Raw(job.JobLength.ToString())</td>
+                    <td>@Html.Raw(job.Status ? Labels.valSuccess : Labels.valFailed)</td>
+                   
+                    <td>
+                        @if (job.Logs != null)
+                        {
+                            <button type="button" class="btn btn-success job-log-btn" data-title="@Labels.valLogMessage" data-url="@Url.Action("GetJobLog", "Settings", new {jobId = job.Id})"><i class="fas fa-search"></i></button>
+
+                        }
+                    </td>
+                </tr>
+
+                counter++;
+            }}
+
+    </tbody>
+</table>
+

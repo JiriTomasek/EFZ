@@ -1,0 +1,57 @@
+﻿@using EFZ.Resources
+@using Microsoft.Data.SqlClient.DataClassification
+
+@model EFZ.WebApplication.Models.Delivery.DeliveryIndexModel
+@{
+    ViewData["Title"] = @Labels.valDelivery;
+}
+
+<h1>@Labels.valDelivery</h1>
+<div class="ribbon-bar">
+
+    <button type="button" class="btn btn-primary delivery-new-btn" data-title="@Labels.valNewDelivery" data-url="@Url.Action("NewDelivery", "Delivery")">@Labels.valNewDelivery</button>
+
+</div>
+
+
+
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">@Html.Raw(Labels.valOrderNumber)</th>
+        <th scope="col">@Html.Raw(Labels.valDeliveryNumber)</th>
+        <th scope="col">@Html.Raw(Labels.valDeliveryDate)</th>
+        <th scope="col">@Html.Raw(Labels.valDeliveryAll)</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+
+        int counter = 1;
+        foreach (var delivery in Model.Deliveries)
+        {
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@Html.Raw(delivery.OrderNumber)</td>
+                <td>@Html.Raw(delivery.DeliveryNumber)</td>
+                <td>@Html.Raw(delivery.DeliveryDate)</td>
+                <td>@Html.Raw(delivery.DeliveryAll)</td>
+                <td>
+                    <button type="button" class="btn btn-primary delivery-detail-btn" data-url="@Url.Action("DeliveryDetail", "Delivery", new {delvieryId = delivery.Id})"><i class="fas fa-search"></i></button>
+                </td>
+
+            </tr>
+            counter++;
+        }}
+
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="newOrderModal" tabindex="-1" role="dialog">
+
+</div>
+<div class="modal fade" id="orderDetailModal" tabindex="-1" role="dialog">
+
+</div>

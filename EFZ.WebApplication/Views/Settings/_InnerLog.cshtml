@@ -1,0 +1,13 @@
+﻿@using EFZ.Resources
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model EFZ.Entities.Entities.JobLog
+
+            <tr>
+                <td>@Html.Raw(@Labels.valInnerError)</td>
+                <td>@Html.Raw(Model.Message)</td>
+            </tr>
+            @if (Model.InnerLog != null)
+            {
+                @Html.Partial("_InnerLog", Model.InnerLog);
+            }
+   

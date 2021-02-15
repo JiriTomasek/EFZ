@@ -1,0 +1,68 @@
+﻿@using EFZ.Entities.Entities
+@using Microsoft.AspNetCore.Identity
+@using EFZ.Resources
+@using EFZ.WebApplication.Middleware
+@model BaseIndexModel
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="nav navbar-nav navbar-nav-right">
+        @if (((string)ViewData[BaseControllerFilter.ViewDataFlags.IsAdmin] == "true"))
+        {
+            <li class="@(Model != null && (Model.ActiveController == "Settings") ? "nav-item dropdown active" : "nav-item dropdown")">
+                <a class="@(Model != null && (Model.ActiveController == "Settings") ? "nav-link active" : "nav-link")" href="#" id="SettingsDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cog"></i>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="SettingsDropdownMenuLink">
+                    <a class="@(Model.ActiveAction == "UserManagement" ? "dropdown-item active" : "dropdown-item")" asp-controller="Settings" asp-action="UserManagement">@Labels.valUserManagemant</a>
+                    <a class="@(Model != null && Model.ActiveAction == "CustomerManagement" ? "dropdown-item active" : "dropdown-item")" href="/Settings/CustomerManagement">@Labels.valCustomerManagement</a>
+                    <a class="@(Model != null && Model.ActiveAction == "JobsManagement" ? "dropdown-item active" : "dropdown-item")" href="/Settings/JobsManagement">@Labels.valJobsManagement</a>
+                    <a class="@(Model != null && Model.ActiveAction == "CompanyManagement" ? "dropdown-item active" : "dropdown-item")" href="/Settings/CompanyManagement">@Labels.valCompanyManagement</a>
+                    <a class="@(Model != null && Model.ActiveAction == "XmlFiles" ? "dropdown-item active" : "dropdown-item")" href="/Settings/XmlFiles">Xml soubory</a>
+                    <a class="@(Model != null && Model.ActiveAction == "AttachemntScan" ? "dropdown-item active" : "dropdown-item")" href="/Settings/AttachmentScan">Prilohy soubory</a>
+
+
+
+                </div>
+            </li>
+        }
+
+
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="UserDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @User.Identity.Name
+            </a>
+            <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="UserDropdownMenuLink">
+                <form method="post" asp-controller="Account" asp-action="Logout">
+                    <button type="submit" class="btn btn-sign-out">@Labels.valLogOut</button>
+                </form>
+            </div>
+            <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="UserDropdownMenuLink">
+                <form method="post" asp-controller="Account" asp-action="Manage">
+                    <button type="submit" class="btn btn-sign-out">@Labels.valUserManage</button>
+                </form>
+            </div>
+        </li>
+
+    </ul>
+
+}
+else
+{
+<ul class="nav navbar-nav navbar-nav-right">
+    <li class="nav-item navbar-dark">
+        <button class="btn btn-primary get-started-btn mt-1 mb-1 btn-green loginRegisterBtn" data-title="@Labels.valLogin"  data-url="@Url.Action("Login", "Account")">@Labels.valLogin 
+            <i class="fas fa-sign-in-alt"></i></button>
+        
+    </li>
+    <li class="nav-item navbar-dark">
+        <button class="btn btn-primary get-started-btn mt-1 mb-1 btn-green loginRegisterBtn" data-title="@Labels.valRegister" data-url="@Url.Action("Register", "Account")">
+            @Labels.valRegister
+        </button>
+
+    </li>
+</ul>
+}

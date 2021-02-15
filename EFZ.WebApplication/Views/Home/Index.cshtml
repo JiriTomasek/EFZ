@@ -1,0 +1,24 @@
+﻿@using EFZ.Resources
+@using Microsoft.CodeAnalysis.CSharp
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model EFZ.WebApplication.Models.BaseIndexModel
+
+
+
+<div class="text-center">
+    <h1 class="display-3" style="padding-top: 3vh">@Labels.valWelcome</h1>
+</div>
+
+
+<div class="text-center">
+    <h2 class="display-4">@Labels.valTitle</h2>
+</div>
+
+<div class="text-left" style="max-width: 60vw; padding-left: 5vw;padding-top: 3vh">
+    <p style="display: list-item"  >@Labels.valWelcomeP1</p>
+    <p style="display: list-item" >@Labels.valWelcomeP2</pdisplay:>
+    <p style="display: list-item"   >@Labels.valWelcomeP3</p>
+</div>

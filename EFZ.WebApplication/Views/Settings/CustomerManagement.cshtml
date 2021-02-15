@@ -1,0 +1,60 @@
+﻿@using EFZ.Resources
+@using Microsoft.Data.SqlClient.DataClassification
+
+@model EFZ.WebApplication.Models.Settings.SettingsModel
+@{
+    ViewData["Title"] = @Labels.valCustomerManagement;
+}
+
+<h1>@Labels.valCustomerManagement</h1>
+<div class="ribbon-bar">
+
+    <button type="button" class="btn btn-primary customer-edit-btn" data-title="@Labels.valCustomerManage" data-url="@Url.Action("NewOrEditCustomer", "Settings", new {customerId = 0})">@Labels.valNewCustomer</button>
+
+</div>
+
+
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">@Html.Raw(Labels.valName)</th>
+            <th scope="col">@Html.Raw(Labels.valIco)</th>
+            <th scope="col">@Html.Raw(Labels.valDIC)</th>
+            <th scope="col">@Html.Raw(Labels.valAddress)</th>
+            <th scope="col">@Html.Raw(Labels.valUsers)</th>
+            <th scope="col">@Html.Raw(Labels.valAction)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            int counter = 1;
+            foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@Html.Raw(customer.Id)</td>
+                    <td>@Html.Raw(customer.Name)</td>
+                    <td>@Html.Raw(customer.IC)</td>
+                    <td>@Html.Raw(customer.DIC)</td>
+
+                    <td>@Html.Raw(customer.AddressString)</td>
+                    <td>@Html.Raw(string.Join(",", customer.Users.Select(t => t.Email)))</td>
+                    <td>
+                        <button type="button" class="btn btn-success customer-edit-btn" data-title="@Labels.valCustomerManage" data-url="@Url.Action("NewOrEditCustomer", "Settings", new {customerId = customer.Id})"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-danger customer-delete-btn" data-title="@LabelsMessages.valDeleteCustomer" data-url="@Url.Action("DeleteCustomer", "Settings", new {customerId = customer.Id})"><i class="far fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                counter++;
+            }}
+
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="customerManagementModal" tabindex="-1" role="dialog">
+
+</div>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlModel> 
+   <Orders>
+      <Order>
+         
+         <CustomerId>1</CustomerId>
+         <OrderNumber>0000000002</OrderNumber>
+         
+         <CurrencyUsed>false</CurrencyUsed>
+         <OrderDate>2020-03-10T00:00:00</OrderDate>
+         
+         <OrderItems>
+            <OrderItem>
+               <Sku>WH1000</Sku>
+               <Name>Sony Hi-Res WH-1000XM3</Name>
+               <Description />
+               <Comments></Comments>
+               <UnitOfSale />
+               <QtyOrdered>1</QtyOrdered>
+               <UnitPrice>8000</UnitPrice>
+               <UnitDiscountAmount>0</UnitDiscountAmount>
+               <UnitDiscountPercentage>0</UnitDiscountPercentage>
+               <Reference />
+               <TaxRate>21</TaxRate>
+               <CustomFields />
+               <TotalNet>90</TotalNet>
+               <TotalTax>15.75</TotalTax>
+               <TaxCode>1</TaxCode>
+               <NominalCode>4000</NominalCode>
+               <Department>0</Department>
+               <Text />
+               <Type>Stock</Type>
+               <QtyAllocated>0</QtyAllocated>
+               <QtyDespatched>0</QtyDespatched>
+            </OrderItem>
+            <OrderItem>
+               <Sku>RHTW</Sku>
+               <Name>Razer Hammerhead True Wireless</Name>
+               <Description />
+               <Comments></Comments>
+               <UnitOfSale />
+               <QtyOrdered>1</QtyOrdered>
+               <UnitPrice>3000</UnitPrice>
+               <UnitDiscountAmount>0</UnitDiscountAmount>
+               <UnitDiscountPercentage>0</UnitDiscountPercentage>
+               <Reference />
+               <TaxRate>21</TaxRate>
+               <CustomFields />
+               <TotalNet>1000</TotalNet>
+               <TotalTax>175</TotalTax>
+               <TaxCode>1</TaxCode>
+               <NominalCode>4000</NominalCode>
+               <Department>0</Department>
+               <Text />
+               <Type>Stock</Type>
+               <QtyAllocated>0</QtyAllocated>
+               <QtyDespatched>0</QtyDespatched>
+            </OrderItem>
+            <OrderItem>
+               <Sku>RHATC</Sku>
+               <Name>RHA TrueConnect</Name>
+               <Description />
+               <Comments></Comments>
+               <UnitOfSale />
+               <QtyOrdered>2</QtyOrdered>
+               <UnitPrice>4000</UnitPrice>
+               <UnitDiscountAmount>0</UnitDiscountAmount>
+               <UnitDiscountPercentage>0</UnitDiscountPercentage>
+               <Reference />
+               <TaxRate>21</TaxRate>
+               <CustomFields />
+               <TotalNet>1000</TotalNet>
+               <TotalTax>175</TotalTax>
+               <TaxCode>1</TaxCode>
+               <NominalCode>4000</NominalCode>
+               <Department>0</Department>
+               <Text />
+               <Type>Stock</Type>
+               <QtyAllocated>0</QtyAllocated>
+               <QtyDespatched>0</QtyDespatched>
+            </OrderItem>
+         </OrderItems>
+         <ItemsNet>19000</ItemsNet>
+         <ItemsTax>3990</ItemsTax>
+         <ItemsTotal>22990</ItemsTotal>           
+      </Order>
+   </Orders>
+</XmlModel>

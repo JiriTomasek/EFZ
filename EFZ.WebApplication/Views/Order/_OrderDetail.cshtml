@@ -1,0 +1,62 @@
+﻿@using EFZ.Resources
+
+@model EFZ.WebApplication.Models.Order.OrderVm
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<input asp-for="CustomerId" type="hidden" />
+@*<input id="RolesIds" type="hidden" />*@
+
+<div class="modal-header">
+
+</div>
+<div class="modal-body">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <table class="table table-responsive-md table-sm table-bordered" id="orderDetailsTable">
+        <thead>
+            <tr name="header">
+                <th scope="col">#</th>
+                <th name="ProductName">@Html.Raw(Labels.valProductName)</th>
+                <th name="Quantity">@Html.Raw(Labels.ValQuantity)</th>
+                <th name="UnitPrice">@Html.Raw(Labels.valUnitPrice)</th>
+                <th name="Discount">@Html.Raw(Labels.valDiscount)</th>
+                <th name="Discount">@Html.Raw(Labels.valTaxRate)</th>
+                <th name="Discount">@Html.Raw(Labels.valTotalTax)</th>
+                <th name="Discount">@Html.Raw(Labels.valTotalNet)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var counter = 1;
+                foreach (var order in Model.OrderDetails)
+                {
+                        <tr>
+                            <th scope="row">@counter</th>
+                            <td>@Html.Raw(order.ProductName)</td>
+                            <td>@Html.Raw(order.Quantity)</td>
+                            <td>@Html.Raw(order.UnitPrice)</td>
+                            <td>@Html.Raw(order.Discount)</td>
+                            <td>@Html.Raw(order.TaxRate)</td>
+                            <td>@Html.Raw(order.TotalTax)</td>
+                            <td>@Html.Raw(order.TotalNet)</td>
+                        </tr>
+                    counter++;
+                }
+        <tr>
+            <th scope="row">@counter</th>
+            <td />
+            <th>Sum</th>
+            <td>@Html.Raw(Model.OrderDetails.Sum(t => t.Quantity * t.UnitPrice * ((100 - (t.Discount ?? 0)) / 100)))</td>
+            <td />
+            <td />
+            <td>@Html.Raw(Model.OrderDetails.Sum(t => t.TotalTax))</td>
+            <td>@Html.Raw(Model.OrderDetails.Sum(t => t.TotalNet))</td>
+        </tr>
+            }
+        </tbody>
+    </table>
+    
+    
+</div>

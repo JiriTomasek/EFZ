@@ -1,0 +1,54 @@
+﻿@using EFZ.Resources
+@using Microsoft.Data.SqlClient.DataClassification
+
+@model EFZ.WebApplication.Models.Settings.SettingsModel
+@{
+    ViewData["Title"] = "valAttachmentScanFiles";
+}
+
+<h1>@Labels.valAttachmentScanFiles</h1>
+
+
+<form method="post" enctype="multipart/form-data" asp-action="AttachmentScanUpload" asp-controller="Settings">
+    <div class="ribbon-bar">
+
+        <input type="submit" class="btn btn-primary" value="@Html.Raw(Labels.valUpload)" />
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+
+            <input type="file" multiple name="files" class="custom-file-input" id="customFile" accept="image/*"/>
+            <label class="custom-file-label" for="customFile">@Html.Raw(Labels.valChooseFileAttachment)</label>
+        </div>
+
+    </div>
+</form>
+
+
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">@Labels.valFileName</th>
+        <th scope="col">@Labels.valAction</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+
+        int counter = 1;
+        foreach (var value in Model.AttachmentScansFiles)
+        {
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@Html.Raw(value)</td>
+                <td>  <button type="button" class="btn btn-danger xmlFile-delete-btn" data-url="@Url.Action("AttachmentScanDelete", "Settings", new {path =value})"><i class="far fa-trash-alt"></i></button>
+                </td>
+              
+            </tr>
+            counter++;
+        }}
+
+    </tbody>
+</table>

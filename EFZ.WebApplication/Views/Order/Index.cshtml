@@ -1,0 +1,58 @@
+﻿@using EFZ.Resources
+@using Microsoft.Data.SqlClient.DataClassification
+
+@model EFZ.WebApplication.Models.Order.OrderIndexModel
+@{
+    ViewData["Title"] = @Labels.valOrder;
+}
+
+<h1>@Labels.valOrder</h1>
+<div class="ribbon-bar">
+
+    <button type="button" class="btn btn-primary order-new-btn" data-title="@Labels.valNewOrder" data-url="@Url.Action("NewOrder", "Order")">@Labels.valNewOrder</button>
+
+</div>
+
+
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.Raw(Labels.valName)</th>
+            <th scope="col">@Html.Raw(Labels.valOrderNumber)</th>
+            <th scope="col">@Html.Raw(Labels.valOrderDate)</th>
+            <th scope="col">@Html.Raw(Labels.valTotalPrice)</th>
+            <th scope="col">@Html.Raw(Labels.valOrderDetail)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            int counter = 1;
+            foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@Html.Raw(order.Customer.Name)</td>
+                    <td>@Html.Raw(order.OrderNumber)</td>
+                    <td>@Html.Raw(order.OrderDate)</td>
+                    <td>@Html.Raw(order.TotalPrice)</td>
+                    <td>
+                        <button type="button" class="btn btn-primary order-detail-btn" data-url="@Url.Action("OrderDetails", "Order", new {orderId = order.Id})" data-title="@Labels.valOrderDetail"><i class="fas fa-search"></i></button>
+                     </td>
+                    
+                </tr>
+                counter++;
+            }}
+
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="newOrderModal" tabindex="-1" role="dialog">
+
+</div>
+<div class="modal fade" id="orderDetailModal" tabindex="-1" role="dialog">
+
+</div>

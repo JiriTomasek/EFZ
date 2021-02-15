@@ -1,0 +1,50 @@
+﻿@using EFZ.Resources
+@using Microsoft.Data.SqlClient.DataClassification
+@model EFZ.WebApplication.Models.AccountViewModels.RegisterViewModel
+
+<div data-role="page">
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</div>
+
+<form id="RegisterForm" method="post" onsubmit="RegisterFormSubmit(event)">
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+
+    </div>
+
+    <div class="modal-body">
+
+        <p id="messageToClient" class="text-danger"></p>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <input asp-for="RegisterEmail" placeholder="@Labels.valEmail" class="form-control" required="required" />
+            <span asp-validation-for="RegisterEmail" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="RegisterPassword" placeholder="@Labels.valPassword" class="form-control" required="required" />
+            <span asp-validation-for="RegisterPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="">
+                <input asp-for="ConfirmPassword" placeholder="@Labels.valPasswordConfirm" class="form-control" required="required" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+        <span class="text-danger">
+            <span id="RegisterErrorMessageSpan">
+
+            </span>
+        </span>
+    </div>
+    <div class="modal-footer modal-footer-login">
+        <button type="submit" class="btn btn-primary btn-green btn-block">@Labels.valRegisterBtn</button>
+        <div class="login-form-wrapper">
+            <button type="button" class="btn btn-none btn-close" data-title="@Labels.valLogin" data-url="@Url.Action("Login", "Account")">@Labels.valLogin</button>
+
+        </div>
+
+    </div>
+
+</form>

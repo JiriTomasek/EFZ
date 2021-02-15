@@ -1,0 +1,37 @@
+﻿@using EFZ.Resources
+@using Newtonsoft.Json
+@model EFZ.WebApplication.Models.Settings.UserVm
+<div data-role="page">
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</div>
+<div class="modal-header">
+
+</div>
+        <form asp-action="DeleteUser" asp-controller="Settings">
+            <input asp-for="Id" type="hidden" />
+
+           
+            <div class="modal-body">
+
+                <p id="messageToClient" class="text-danger"></p>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    
+                </dl>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">@Html.Raw(Labels.valClose)</button>
+                <input type="submit" class="btn btn-danger" value="@Html.Raw(Labels.valDelete)" />
+            </div>
+        </form>
+  

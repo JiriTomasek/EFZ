@@ -1,0 +1,36 @@
+﻿@using EFZ.Resources
+
+@model List<EFZ.Entities.Entities.JobLog>
+
+
+
+<div class="modal-body">
+
+    <table class="table table-responsive-md table-sm table">
+        <thead>
+            <tr name="header">
+                <th name="ProductName">@Html.Raw(Labels.valName)</th>
+                <th name="Quantity">@Html.Raw(Labels.ValErrorMessage)</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var log in Model)
+                {
+                    <tr>
+                        <td>@Html.Raw(log.Name)</td>
+                        <td>@Html.Raw(log.Message)</td>
+                    </tr>
+                    @if (log.InnerLog != null)
+                    {
+                        @Html.Partial("_InnerLog", log.InnerLog);
+                    }
+                }
+               
+            }
+        </tbody>
+    </table>
+
+
+</div>

@@ -1,0 +1,97 @@
+﻿@using EFZ.Resources
+@using Microsoft.Data.SqlClient.DataClassification
+
+@model EFZ.WebApplication.Models.Settings.SettingsModel
+@{
+    ViewData["Title"] = @Labels.valCompanyManagement;
+}
+
+<h1>@Labels.valCompanyManagement</h1>
+
+
+<form asp-action="SaveCompany" asp-controller="Settings">
+    <div class="ribbon-bar">
+
+        <input type="submit" class="btn btn-primary" value="@Html.Raw(Labels.valSave)" />
+    </div>
+
+    <input asp-for="Company.Id" type="hidden" />
+    <input asp-for="Company.AddressId" type="hidden" />
+    <input asp-for="Company.Address.Id" type="hidden" />
+    <div class="modal-header">
+
+    </div>
+    <div class="modal-body">
+        <p id="messageToClient" class="text-danger"></p>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="Company.Name" class="control-label"></label>
+                    <input asp-for="Company.Name" class="form-control" />
+                    <span asp-validation-for="Company.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Company.IC" class="control-label"></label>
+                    <input asp-for="Company.IC" class="form-control" />
+                    <span asp-validation-for="Company.IC" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Company.DIC" class="control-label"></label>
+                    <input asp-for="Company.DIC" class="form-control" />
+                    <span asp-validation-for="Company.DIC" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="select-wrapper">
+                        <span class="multi-user-select"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="Company.Address.StreetName" class="control-label"></label>
+                    <input asp-for="Company.Address.StreetName" class="form-control" />
+                    <span asp-validation-for="Company.Address.StreetName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+
+                    <label asp-for="Company.Address.StreetNumber" class="control-label"></label>
+                    <input asp-for="Company.Address.StreetNumber" class="form-control" />
+                    <span asp-validation-for="Company.Address.StreetNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Company.Address.AlternativeStreetNumber" class="control-label"></label>
+                    <input asp-for="Company.Address.AlternativeStreetNumber" class="form-control" />
+                    <span asp-validation-for="Company.Address.AlternativeStreetNumber" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="col-4">
+
+
+                <div class="form-group">
+                    <label asp-for="Company.Address.City" class="control-label"></label>
+                    <input asp-for="Company.Address.City" class="form-control" />
+                    <span asp-validation-for="Company.Address.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Company.Address.PostalCode" class="control-label"></label>
+                    <input asp-for="Company.Address.PostalCode" class="form-control" />
+                    <span asp-validation-for="Company.Address.PostalCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Company.Address.State" class="control-label"></label>
+                    <input asp-for="Company.Address.State" class="form-control" />
+                    <span asp-validation-for="Company.Address.State" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

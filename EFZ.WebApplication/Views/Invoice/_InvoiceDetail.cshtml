@@ -1,0 +1,205 @@
+﻿@using System.Globalization
+@using EFZ.Resources
+@using Microsoft.CodeAnalysis.CSharp.Syntax
+
+@model EFZ.WebApplication.Models.Invoice.InvoiceVm
+
+<table width="100%">
+
+    <tbody>
+        <tr>
+            <td width="100%" colspan="2" style="width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;height:49.6pt">
+                <p class="MsoNormal" align="right"><b><span style="font-size:14.0pt">Faktura – č. @Model.InvoiceNumber<o:p></o:p></span></b></p>
+
+                <p class="MsoNormal" align="right"><b><span style="font-size:14.0pt">Objednávka – č. @Model.OrderNumber<o:p></o:p></span></b></p>
+            </td>
+        </tr>
+        <tr>
+            <td width="56%" valign="top" style="width:56.88%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="left">
+                    <b>
+                        <span style="font-size:12.0pt">Dodavatel:<o:p></o:p></span>
+                    </b>
+                </p>
+                <p class="MsoNormal" align="left">@Model.Company.Name</p>
+                @if (string.IsNullOrEmpty(Model.Company.Address?.AlternativeStreetNumber))
+                {
+                    <p class="MsoNormal" align="left"> @Model.Company.Address?.StreetName @Model.Company.Address?.StreetNumber</p>
+
+                }
+                @if (!string.IsNullOrEmpty(Model.Company.Address?.AlternativeStreetNumber))
+                {
+                    <p class="MsoNormal" align="left">@Model.Company.Address.StreetName @Model.Company.Address.StreetNumber / @Model.Company.Address.AlternativeStreetNumber</p>
+
+                }
+                <p class="MsoNormal" align="left">@Model.Company.Address?.PostalCode @Model.Company.Address?.City</p>
+                <p class="MsoNormal" align="left">@Model.Company.Address?.State</p>
+                <p class="MsoNormal" align="left">IČ: @Model.Company.IC</p>
+                <p class="MsoNormal" align="left">DIČ: @Model.Company.DIC
+            </td>
+            <td width="43%" valign="top" style="width:43.12%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="left">
+                    <b>
+                        <span style="font-size:12.0pt">Odběratel:<o:p></o:p></span>
+                    </b>
+                </p>
+                @if (!string.IsNullOrEmpty(Model.InvoiceAddress.FirstName))
+                {
+                    <p class="MsoNormal" align="left">@Model.InvoiceAddress.FirstName @Model.InvoiceAddress.LAstName</p>
+
+                }
+
+                @if (!string.IsNullOrEmpty(Model.InvoiceAddress.Company))
+                {
+                    <p class="MsoNormal" align="left">@Model.InvoiceAddress.Company</p>
+
+                }
+
+                @if (string.IsNullOrEmpty(Model.InvoiceAddress.AlternativeStreetNumber))
+                {
+                    <p class="MsoNormal" align="left">@Model.InvoiceAddress.StreetName @Model.InvoiceAddress.StreetNumber</p>
+
+                }
+                @if (!string.IsNullOrEmpty(Model.InvoiceAddress.AlternativeStreetNumber))
+                {
+                    <p class="MsoNormal" align="left">@Model.InvoiceAddress.StreetName @Model.InvoiceAddress.StreetNumber / @Model.InvoiceAddress.AlternativeStreetNumber</p>
+
+                }
+                <p class="MsoNormal" align="left">@Model.InvoiceAddress.PostalCode @Model.InvoiceAddress.City</p>
+                <p class="MsoNormal" align="left">@Model.InvoiceAddress.State</p>
+                <p class="MsoNormal" align="left">IČ: @Model.InvoiceAddress.IC</p>
+                <p class="MsoNormal" align="left">DIČ:@Model.InvoiceAddress.DIC</p>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+<p class="MsoNormal" align="left" style="line-height:normal"><b><span style="font-size:12.0pt">Platební podmínky:<o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" align="left" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal">Datum vystavení: @Model.InvoiceDate.ToShortDateString()</p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+
+<div align="center">
+
+    <table class="MsoTableGrid" border="0" cellspacing="0" cellpadding="0" width="100%" style="width: 100.0%; border-collapse: collapse; border: none;">
+        <thead>
+            <tr>
+                <th width="100%" colspan="7" style="width: 100.0%; padding: 0cm 5.4pt 0cm 5.4pt">
+                    <p class="MsoNormal"><b>Přehled fakturovaného zboží/služeb:<o:p></o:p></b></p>
+                </th>
+            </tr>
+            <tr style=height: 33.8pt">
+                <th width="25%" style="width: 25.8%; padding: 0cm 5.4pt 0cm 5.4pt; height: 33.8pt">
+                    <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">Zboží/ služba</p>
+                </th>
+                <th width="12%" style="width: 12.06%; padding: 0cm 5.4pt 0cm 5.4pt; height: 33.8pt">
+                    <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">Množství</p>
+                </th>
+                <th width="15%" style="width: 15.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 33.8pt">
+                    <p class="MsoNormal" align="right" align="center" style="margin-bottom: 0cm; margin-bottom: .0001pt; text-align: center; line-height: normal">Cena za ks bez DPH</p>
+                </th>
+                <th width="13%" style="width: 13.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 33.8pt">
+                    <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">Sazba DPH</p>
+                </th>
+                <th width="15%" style="width: 15.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 33.8pt">
+                    <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">DPH</p>
+                </th>
+
+                <th width="15%" style="width: 15.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 33.8pt">
+                    <p class="MsoNormal" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">Celkem s DPH</p>
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var items in Model.InvoiceItems)
+            {
+                <tr style="height: 28.6pt">
+                    <td width="25%" valign="top" style="width: 25.8%; padding: 0cm 5.4pt 0cm 5.4pt; height: 28.6pt">
+                        <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">@items.Name</p>
+                    </td>
+                    <td width="12%" valign="top" style="width: 12.06%; padding: 0cm 5.4pt 0cm 5.4pt; height: 28.6pt">
+                        <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">@items.Quantity</p>
+                    </td>
+                    <td width="15%" valign="top" style="width: 15.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 28.6pt">
+                        <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">@items.UnitPrice.ToString("C", new CultureInfo("cs-CZ"))</p>
+                    </td>
+                    <td width="13%" valign="top" style="width: 13.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 28.6pt">
+                        @{ var tax = items.TaxRate / 100;}
+                        <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">@tax.ToString("P")</p>
+                    </td>
+                    <td width="15%" valign="top" style="width: 15.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 28.6pt">
+                        <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">@items.TotalTax.ToString("C", new CultureInfo("cs-CZ"))</p>
+                    </td>
+
+                    <td width="15%" valign="top" style="width: 15.64%; padding: 0cm 5.4pt 0cm 5.4pt; height: 28.6pt">
+                        <p class="MsoNormal" align="right" style="margin-bottom: 0cm; margin-bottom: .0001pt; line-height: normal">@items.TotalNet.ToString("C", new CultureInfo("cs-CZ"))</p>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+
+</div>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+<p class="MsoNormal" align="center" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:center;line-height:normal">
+    <b>CELKEM K ÚHRADĚ:</b> @Model.ItemsTotal.ToString("C", new CultureInfo("cs-CZ"))
+</p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+<table class="MsoTableGrid" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td width="69%" valign="top" style="width:69.14%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="right" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:right;line-height:normal"><b>Celkem bez DPH<o:p></o:p></b></p>
+            </td>
+            <td width="30%" valign="top" style="width:30.86%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="right" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:right;line-height:normal">@Model.ItemsNet.ToString("C", new CultureInfo("cs-CZ"))</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="69%" valign="top" style="width:69.14%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="right" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:right;line-height:normal"><b>Celkem DPH<o:p></o:p></b></p>
+            </td>
+            <td width="30%" valign="top" style="width:30.86%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="right" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:right;line-height:normal">@Model.ItemsTax.ToString("C", new CultureInfo("cs-CZ"))</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="69%" valign="top" style="width:69.14%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="right" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:right;line-height:normal"><b>Celkem s DPH<o:p></o:p></b></p>
+            </td>
+            <td width="30%" valign="top" style="width:30.86%;padding:0cm 5.4pt 0cm 5.4pt">
+                <p class="MsoNormal" align="right" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:right;line-height:normal">@Model.ItemsTotal.ToString("C", new CultureInfo("cs-CZ"))</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" align="right" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:right;line-height:normal">
+    Vystavil:<u>
+        <span style="mso-tab-count: 5">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </u>
+</p>

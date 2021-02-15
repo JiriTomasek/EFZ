@@ -1,0 +1,44 @@
+﻿@using EFZ.Resources
+@model EFZ.WebApplication.Models.Completion.CompletionIndexModel
+@{
+    ViewData["Title"] = @Labels.valInvoices;
+}
+
+<h1>@Labels.valInvoices</h1>
+
+
+
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">@Html.Raw(Labels.valCustomer)</th>
+        <th scope="col">@Html.Raw(Labels.valOrderNumber)</th>
+        <th scope="col">@Html.Raw(Labels.valInvoiceNumber)</th>
+        <th scope="col">@Html.Raw(Labels.valInvoiceDate)</th>
+        <th scope="col">@Html.Raw(Labels.valInvoiceDonwload)</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+
+        int counter = 1;
+        foreach (var completion in Model.Completions)
+        {
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@Html.Raw(completion.Customer.Name)</td>
+                <td>@Html.Raw(completion.OrderNumber)</td>
+                <td>@Html.Raw(completion.InvoiceNumber)</td>
+                <td>@Html.Raw(completion.InvoiceDate)</td>
+             
+                <td>
+                    <button class="btn btn-primary completion-download-btn" data-completion-id="@completion.Id" data-file-name="@completion.InvoiceNumber" ><i class="fas fa-file-download"></i></button>
+                </td>
+
+            </tr>
+            counter++;
+        }}
+
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+﻿@using EFZ.Resources
+@using Newtonsoft.Json
+@model EFZ.WebApplication.Models.Attachment.AttachmentVm
+<div data-role="page">
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</div>
+        <form asp-action="DeleteAttachment" asp-controller="Attachment">
+            <input asp-for="Id" type="hidden" />
+
+            <div class="modal-header">
+               
+            </div>
+            <div class="modal-body">
+
+                <p id="messageToClient" class="text-danger"></p>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.FileName)
+                    </dt>
+                </dl>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">@Html.Raw(Labels.valClose)</button>
+                <input type="submit" class="btn btn-danger" value="@Html.Raw(Labels.valDelete)" />
+            </div>
+        </form>
+  

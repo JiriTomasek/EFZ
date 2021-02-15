@@ -1,0 +1,298 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  /*margin-bottom: 60px;*/
+}
+.footer {
+    position: relative;
+    height: 40px;
+    bottom: 0px;
+    width: 100%;
+    /* height: 5vh; /* Footer height */
+}
+.fixed-top {
+    position: relative;
+}
+
+.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 90%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.main-content {
+    padding: 0px 0px;
+    position: relative;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    min-height: calc(100vh - 90px);
+}
+
+
+.project-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #EBEBEB;
+}
+.left-content {
+    padding: 0px;
+    height: 100%;
+    min-width: 0px;
+    width: 0px;
+    position: relative;
+    background-color: #EBEBEB;
+    min-height: calc(100vh - 90px);
+}
+
+.right-Content {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    position: relative;
+    background-color: #EBEBEB;
+    overflow-x: hidden;
+    max-height: calc(100vh - 90px);
+}
+
+
+.select-wrapper {
+    margin: auto;
+    max-width: 600px;
+}
+.load-processing {
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: hidden;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+
+.background-processing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.2;
+}
+
+.container-processing {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.navbar {
+    padding: 0px 40px;
+}
+
+.navbar-nav {
+    float: left;
+    background-image: none;
+}
+
+.navbar-nav-right {
+    float: right;
+}
+
+.navbar-default {
+    height: 50px;
+}
+.navbar .dropdown-menu.login-form-wrapper {
+    width: 280px;
+    padding: 20px;
+    left: auto;
+    right: 0;
+    font-size: 14px;
+}
+
+.navbar .nav .btn-green, .navbar .nav .btn-green:active {
+    color: #fff;
+    background: #33cabb;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    vertical-align: middle;
+    border: none;
+}
+.btn-green, .btn-green:active, .btn-green:hover {
+    color: #fff;
+    background: #33cabb;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    vertical-align: middle;
+    border: none;
+}
+.btn-green:not(:disabled):not(.disabled):active {
+    color: #fff;
+    background: #33cabb;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    vertical-align: middle;
+    border: none;
+}
+
+
+.navbar .nav .get-started-btn {
+    min-width: 120px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 10px;
+}
+.login-form-footer {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 13px;
+}
+.hint-text {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+.modal-footer-login {
+    display: block;
+}
+.login-form-wrapper {
+    display: inline-grid;
+}
+
+.login-form-wrapper a,
+login-form-wrapper button {
+    color: #33cabb;
+    padding: 0 !important;
+}
+
+    .login-form-wrapper a:hover,
+    login-form-wrapper button:hover {
+        text-decoration: underline;
+    }
+
+
+.btn-none {
+    color: #33cabb;
+    padding: 0 !important;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background: transparent;
+}
+.btn-none:hover {
+    color: #33cabb;
+    padding: 0 !important;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background: transparent;
+    text-decoration: underline;
+}
+.loginRegisterBtn {
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0,0, 0, 0);
+}
+
+.btn-sign-out {
+    background-color: transparent;
+    border-color: transparent;
+    color: #1F1F1F;
+    text-decoration: none;
+    background-size: contain;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+}
+
+.ribbon-bar {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    border-bottom: 2px solid #DBDBDB !important;
+    margin-bottom: 8px;
+}
+
+.btn-close, .user-edit-btn, .user-delete-btn, .multi-role-select, .customer-single-select, .multi-user-select,
+.customer-edit-btn, .customer-delete-btn, .order-detail-btn, .order-new-btn, .delivery-new-btn, .delivery-detail-btn,
+.order-single-select, .user-new-btn, .delivery-single-select, .attachment-new-btn, .invoice-download-btn, .invoice-detail-btn, .job-run-btn {
+}
+
+
+.custom-file-input, .custom-file-label, .attachment-download-btn, .job-edit-btn, .job-log-btn, .completion-download-btn {
+}
+
+.modal-header {
+    padding: 0;
+}
+.modal-body {
+    padding: 0.1rem  1rem;
+}
+
+.custom-file-input:lang(cz) ~ .custom-file-label::after {
+    content: "Prohlizet";
+}
+
+p.MsoNormal, li.MsoNormal, div.MsoNormal {
+   
+    margin-top: 0cm;
+    margin-right: 0cm;
+    margin-bottom: 8.0pt;
+    margin-left: 0cm;
+    line-height: 107%;
+   
+    font-size: 11.0pt;
+    font-family: "Calibri",sans-serif;
+}

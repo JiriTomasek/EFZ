@@ -1,0 +1,103 @@
+﻿@using EFZ.Resources
+@using Newtonsoft.Json
+@model EFZ.WebApplication.Models.Attachment.AttachmentVm
+<div data-role="page">
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</div>
+
+<form id="NewAttachmentForm" method="post" enctype="multipart/form-data" asp-controller="Attachment" asp-action="NewAttachment">
+
+    <input asp-for="CustomerId" type="hidden" />
+    <input asp-for="OrderId" type="hidden" />
+    <input asp-for="DeliveryId" type="hidden" />
+
+    @*<input id="RolesIds" type="hidden" />*@
+
+    <div class="modal-header">
+
+    </div>
+    <div class="modal-body">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-6">
+
+                <div class="form-group">
+                    <label asp-for="CustomerId" class="control-label"></label>
+                    <div class="select-wrapper">
+                        <span class="customer-single-select"></span>
+                    </div>
+                    <span asp-validation-for="CustomerId" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="OrderId" class="control-label"></label>
+                    <div class="select-wrapper">
+                        <span class="order-single-select"></span>
+                    </div>
+                    <span asp-validation-for="OrderId" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="DeliveryId" class="control-label"></label>
+                    <div class="select-wrapper">
+                        <span class="delivery-single-select"></span>
+                    </div>
+                    <span asp-validation-for="DeliveryId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="OrderNumber" class="control-label"></label>
+                    <input asp-for="OrderNumber" type="number" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeliveryNumber" class="control-label"></label>
+                    <input asp-for="DeliveryNumber" type="number" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="DeliveryNumber" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div class="form-group" style="margin-bottom: 8px">
+                    <label class="control-label"></label>
+                </div>
+                <div class="form-group">
+                    <div class="col-md">
+
+                        <input type="file" name="file" class="custom-file-input" id="customFile" accept=".pdf" />
+                        <label class="custom-file-label" for="customFile">@Html.Raw(Labels.valChooseFileAttachment)</label>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">@Html.Raw(Labels.valClose)</button>
+        <input type="submit" class="btn btn-primary" value="@Html.Raw(Labels.valSave)" />
+    </div>
+</form>
+
+<script>
+
+
+    setAttachmentDeliverySelect(@Json.Serialize(@LabelsMessages.valDeliverySelect), []);
+
+    setAttachmentOrderSelect(@Json.Serialize(@LabelsMessages.valOrderSelect), []);
+
+
+    setAttachmentCustomerSelect(@Json.Serialize(@LabelsMessages.valCustomerSelect), @Json.Serialize(@ViewBag.Customers));
+
+</script>

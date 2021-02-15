@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlModel> 
+   <Orders>
+      <Order>
+         
+         <CustomerId>1</CustomerId>
+         <OrderNumber>0000000002</OrderNumber>
+         
+         <CurrencyUsed>false</CurrencyUsed>
+         <OrderDate>2020-04-16T00:00:00</OrderDate>
+         
+         <OrderItems>
+            <OrderItem>
+               <Sku>HV20</Sku>
+               <Name>Canon HV20 High Definition Camcorder (10X Optical Zoom, 2.7</Name>
+               <Description />
+               <Comments></Comments>
+               <UnitOfSale />
+               <QtyOrdered>1</QtyOrdered>
+               <UnitPrice>100</UnitPrice>
+               <UnitDiscountAmount>0</UnitDiscountAmount>
+               <UnitDiscountPercentage>0</UnitDiscountPercentage>
+               <Reference />
+               <TaxRate>17.5</TaxRate>
+               <CustomFields />
+               <TotalNet>90</TotalNet>
+               <TotalTax>15.75</TotalTax>
+               <TaxCode>1</TaxCode>
+               <NominalCode>4000</NominalCode>
+               <Department>0</Department>
+               <Text />
+               <Type>Stock</Type>
+               <QtyAllocated>0</QtyAllocated>
+               <QtyDespatched>0</QtyDespatched>
+            </OrderItem>
+            <OrderItem>
+               <Sku>MCM240</Sku>
+               <Name>Philips MCM240/25 MP3 Micro Hi-Fi System</Name>
+               <Description />
+               <Comments></Comments>
+               <UnitOfSale />
+               <QtyOrdered>1</QtyOrdered>
+               <UnitPrice>1000</UnitPrice>
+               <UnitDiscountAmount>0</UnitDiscountAmount>
+               <UnitDiscountPercentage>0</UnitDiscountPercentage>
+               <Reference />
+               <TaxRate>17.5</TaxRate>
+               <CustomFields />
+               <TotalNet>1000</TotalNet>
+               <TotalTax>175</TotalTax>
+               <TaxCode>1</TaxCode>
+               <NominalCode>4000</NominalCode>
+               <Department>0</Department>
+               <Text />
+               <Type>Stock</Type>
+               <QtyAllocated>0</QtyAllocated>
+               <QtyDespatched>0</QtyDespatched>
+            </OrderItem>
+         </OrderItems>
+         <ItemsNet>1090</ItemsNet>
+         <ItemsTax>190.75</ItemsTax>
+         <ItemsTotal>1280.75</ItemsTotal>
+                 
+      </Order>
+   </Orders>
+</XmlModel>

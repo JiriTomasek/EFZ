@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="valAction" xml:space="preserve">
+    <value>Akce</value>
+  </data>
+  <data name="valAddress" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="valAllOrde" xml:space="preserve">
+    <value>Celá objednávka</value>
+  </data>
+  <data name="valAlternativeStreetNumber" xml:space="preserve">
+    <value>Číslo orientační</value>
+  </data>
+  <data name="valAttachment" xml:space="preserve">
+    <value>Přílohy</value>
+  </data>
+  <data name="valAttachmentScanFiles" xml:space="preserve">
+    <value>Scany priloh</value>
+  </data>
+  <data name="valChooseFileAttachment" xml:space="preserve">
+    <value>Vyberte přílohu</value>
+  </data>
+  <data name="valCity" xml:space="preserve">
+    <value>Město</value>
+  </data>
+  <data name="valClose" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="valCompany" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="valCompanyManagement" xml:space="preserve">
+    <value>Správa firmy</value>
+  </data>
+  <data name="valCompletation" xml:space="preserve">
+    <value>Kompletace</value>
+  </data>
+  <data name="valCompletionJob" xml:space="preserve">
+    <value>Kompletace</value>
+  </data>
+  <data name="valConfirmPassword" xml:space="preserve">
+    <value>Potvrdtě heslo</value>
+  </data>
+  <data name="valCustomer" xml:space="preserve">
+    <value>Zákazník</value>
+  </data>
+  <data name="valCustomerManage" xml:space="preserve">
+    <value>Nastavení zákazníka</value>
+  </data>
+  <data name="valCustomerManagement" xml:space="preserve">
+    <value>Správa zákazníků</value>
+  </data>
+  <data name="valDateTime" xml:space="preserve">
+    <value>Datum a čas</value>
+  </data>
+  <data name="valDelete" xml:space="preserve">
+    <value>Smazat</value>
+  </data>
+  <data name="valDelivered" xml:space="preserve">
+    <value>Doručeno</value>
+  </data>
+  <data name="valDelivery" xml:space="preserve">
+    <value>Dodávky</value>
+  </data>
+  <data name="valDeliveryAll" xml:space="preserve">
+    <value>Dodat vše</value>
+  </data>
+  <data name="valDeliveryDate" xml:space="preserve">
+    <value>Datum dodávky</value>
+  </data>
+  <data name="valDeliveryNumber" xml:space="preserve">
+    <value>Číslo dodávky</value>
+  </data>
+  <data name="valDial" xml:space="preserve">
+    <value>Číselníky</value>
+  </data>
+  <data name="valDIC" xml:space="preserve">
+    <value>DIC</value>
+  </data>
+  <data name="valDiscount" xml:space="preserve">
+    <value>Sleva</value>
+  </data>
+  <data name="valEdit" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="valEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="ValErrorMessage" xml:space="preserve">
+    <value>Chybove hlášení</value>
+  </data>
+  <data name="valFailed" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="valFile" xml:space="preserve">
+    <value>Soubor</value>
+  </data>
+  <data name="valFileName" xml:space="preserve">
+    <value>Název souboru</value>
+  </data>
+  <data name="valFileType" xml:space="preserve">
+    <value>Typ souboru</value>
+  </data>
+  <data name="valFirstName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="valForogotPassword" xml:space="preserve">
+    <value>Zapomněli jste heslo?</value>
+  </data>
+  <data name="valHome" xml:space="preserve">
+    <value>Domu</value>
+  </data>
+  <data name="valIco" xml:space="preserve">
+    <value>IC</value>
+  </data>
+  <data name="valInnerError" xml:space="preserve">
+    <value>Vnořená chyba</value>
+  </data>
+  <data name="valInvoiceDate" xml:space="preserve">
+    <value>Datum fakturace</value>
+  </data>
+  <data name="valInvoiceDetail" xml:space="preserve">
+    <value>Detail faktury</value>
+  </data>
+  <data name="valInvoiceDonwload" xml:space="preserve">
+    <value>Faktura ke stazeni</value>
+  </data>
+  <data name="valInvoiceItems" xml:space="preserve">
+    <value>Položky fakturace</value>
+  </data>
+  <data name="valInvoiceNumber" xml:space="preserve">
+    <value>Číslo faktury</value>
+  </data>
+  <data name="valInvoices" xml:space="preserve">
+    <value>Faktury</value>
+  </data>
+  <data name="valItemsTotal" xml:space="preserve">
+    <value>Celková cena</value>
+  </data>
+  <data name="valJobEdit" xml:space="preserve">
+    <value>Editování jobu</value>
+  </data>
+  <data name="valJobLength" xml:space="preserve">
+    <value>Cyklus jobu</value>
+  </data>
+  <data name="valJobs" xml:space="preserve">
+    <value>Joby</value>
+  </data>
+  <data name="valJobScheduler" xml:space="preserve">
+    <value>Pslední joby</value>
+  </data>
+  <data name="valJobsManage" xml:space="preserve">
+    <value>Správa jobů</value>
+  </data>
+  <data name="valJobsManagement" xml:space="preserve">
+    <value>Správa jobů</value>
+  </data>
+  <data name="valJobStart" xml:space="preserve">
+    <value>Spustit job</value>
+  </data>
+  <data name="valJobStop" xml:space="preserve">
+    <value>Zastavit job</value>
+  </data>
+  <data name="valJobTime" xml:space="preserve">
+    <value>Datum jobu</value>
+  </data>
+  <data name="valLastName" xml:space="preserve">
+    <value>Příjmení</value>
+  </data>
+  <data name="valLastStart" xml:space="preserve">
+    <value>Poslední spuštění</value>
+  </data>
+  <data name="valLastStatus" xml:space="preserve">
+    <value>poslední status</value>
+  </data>
+  <data name="valLength" xml:space="preserve">
+    <value>Délka trvání</value>
+  </data>
+  <data name="valLog" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="valLogin" xml:space="preserve">
+    <value>Přihlášení</value>
+  </data>
+  <data name="valLoginBtn" xml:space="preserve">
+    <value>Přihlásit</value>
+  </data>
+  <data name="valLogMessage" xml:space="preserve">
+    <value>Logy</value>
+  </data>
+  <data name="valLogOut" xml:space="preserve">
+    <value>Odhlásit</value>
+  </data>
+  <data name="valManually" xml:space="preserve">
+    <value>Supstit manualně</value>
+  </data>
+  <data name="valMobile" xml:space="preserve">
+    <value>Mobil</value>
+  </data>
+  <data name="valName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="valNew" xml:space="preserve">
+    <value>Novy</value>
+  </data>
+  <data name="valNewAttachment" xml:space="preserve">
+    <value>Nová příloha</value>
+  </data>
+  <data name="valNewCustomer" xml:space="preserve">
+    <value>Nový zákazník</value>
+  </data>
+  <data name="valNewDelivery" xml:space="preserve">
+    <value>Nová dodávka</value>
+  </data>
+  <data name="valNewOrder" xml:space="preserve">
+    <value>Nová objednávka</value>
+  </data>
+  <data name="valNewOrderDetail" xml:space="preserve">
+    <value>Přidat detail objednávky</value>
+  </data>
+  <data name="valNewUser" xml:space="preserve">
+    <value>Nový uživatel</value>
+  </data>
+  <data name="valOrder" xml:space="preserve">
+    <value>Objednávky</value>
+  </data>
+  <data name="valOrderDate" xml:space="preserve">
+    <value>Datum objednávky</value>
+  </data>
+  <data name="valOrderDetail" xml:space="preserve">
+    <value>Detail objednávky</value>
+  </data>
+  <data name="valOrderNumber" xml:space="preserve">
+    <value>Číslo objednavky</value>
+  </data>
+  <data name="valPassword" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="valPasswordConfirm" xml:space="preserve">
+    <value>Heslo znovu</value>
+  </data>
+  <data name="valPiceOfOrder" xml:space="preserve">
+    <value>Část objednávky</value>
+  </data>
+  <data name="valPostalCode" xml:space="preserve">
+    <value>PSC</value>
+  </data>
+  <data name="valPrivacyContent" xml:space="preserve">
+    <value>Společnost EFZ neuchovává v souvislosti s používáním nebo se stahováním dokumentů žádné osobní údaje., vyjma
+vašeho emailového účtu, který je povinný pro přístup na portál. Vaše osobní údaje jsou zpracovávány v souladu se
+zákonem č. 101/2000 Sb., o ochraně osobních údajů (dále jen „ZOOÚ“), v platném znění a s principy rámcových
+směrnic Evropské unie pro ochranu dat, zejména se směrnicí Evropského parlamentu a Rady 95/46/ES. Správcem a
+zároveň zpracovatelem těchto osobních údajů je společnost EFZ. Jakékoli informace shromažďované o Vás budou
+využívány zejména (i) k poskytování Vámi požadovaných informací, služeb či produktů a také k vylepšování našich
+zákaznických služeb, zejména Portálu a za účelem šíření obchodních sdělení elektronickými prostředky dle zákona č.
+480/2004 Sb., o některých službách informační společnosti (dále jen „Služby“).</value>
+  </data>
+  <data name="valPrivacyTitle" xml:space="preserve">
+    <value>Zásady ochrany osobních údajů (Privacy Policy)</value>
+  </data>
+  <data name="valProductName" xml:space="preserve">
+    <value>Jméno produktu</value>
+  </data>
+  <data name="ValQuantity" xml:space="preserve">
+    <value>Kvantita</value>
+  </data>
+  <data name="valRegister" xml:space="preserve">
+    <value>Registrace</value>
+  </data>
+  <data name="valRegisterBtn" xml:space="preserve">
+    <value>Registrovat</value>
+  </data>
+  <data name="valRememberMe" xml:space="preserve">
+    <value>Zapamatovat si mě?</value>
+  </data>
+  <data name="valRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="valRunJobManually" xml:space="preserve">
+    <value>Spustit manualně</value>
+  </data>
+  <data name="valSave" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="valSigIn" xml:space="preserve">
+    <value>Registrace</value>
+  </data>
+  <data name="valStarted" xml:space="preserve">
+    <value>Spuštěn</value>
+  </data>
+  <data name="valState" xml:space="preserve">
+    <value>Stat</value>
+  </data>
+  <data name="valStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="valStoped" xml:space="preserve">
+    <value>Zastaven</value>
+  </data>
+  <data name="valStreetName" xml:space="preserve">
+    <value>Ulice</value>
+  </data>
+  <data name="valStreetNumber" xml:space="preserve">
+    <value>Číslo popisne</value>
+  </data>
+  <data name="valSuccess" xml:space="preserve">
+    <value>V pořádku</value>
+  </data>
+  <data name="valTaxRate" xml:space="preserve">
+    <value>DPH</value>
+  </data>
+  <data name="valTelephone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="valTitle" xml:space="preserve">
+    <value>Elektronická Fakturace Zákazníkem</value>
+  </data>
+  <data name="valTitleAddress" xml:space="preserve">
+    <value>Titul</value>
+  </data>
+  <data name="valTotalNet" xml:space="preserve">
+    <value>Celkova cena s DPH</value>
+  </data>
+  <data name="valTotalPrice" xml:space="preserve">
+    <value>Celková cena</value>
+  </data>
+  <data name="valTotalTax" xml:space="preserve">
+    <value>DPH celkem</value>
+  </data>
+  <data name="valUnautorizedAccess" xml:space="preserve">
+    <value>Neautorizovaný přístup</value>
+  </data>
+  <data name="valUnitPrice" xml:space="preserve">
+    <value>Jednotková cena</value>
+  </data>
+  <data name="valUpload" xml:space="preserve">
+    <value>Nahrát</value>
+  </data>
+  <data name="valUserManage" xml:space="preserve">
+    <value>Nastavení uživatele</value>
+  </data>
+  <data name="valUserManagemant" xml:space="preserve">
+    <value>Správa uživatelů</value>
+  </data>
+  <data name="valUsers" xml:space="preserve">
+    <value>Uživatelé</value>
+  </data>
+  <data name="valVat" xml:space="preserve">
+    <value>VAT</value>
+  </data>
+  <data name="valWelcome" xml:space="preserve">
+    <value>Vítejte v Portálu EFZ</value>
+  </data>
+  <data name="valWelcomeP1" xml:space="preserve">
+    <value>Přihlášení do Portálu provedete zadáním přihlašovacího jména a hesla do přihlašovacího okna po stisknutí
+tlačítka Přihlášení v pravém horním rohu.</value>
+  </data>
+  <data name="valWelcomeP2" xml:space="preserve">
+    <value>Pokud nemáte vytvořený účet, můžete si jej vytvořit po stisku tlačítka Registrace v pravém horním rohu.
+Následně vám správce portálu provede dodatečné nastavení, abyste mohli využívat všechny funkce portálu.</value>
+  </data>
+  <data name="valWelcomeP3" xml:space="preserve">
+    <value>Budete-li mít problémy s používáním Portálu EFZ, dejte nám, prosím, vědět na adresu helpdesk@efz.cz.</value>
+  </data>
+  <data name="valXmlFiles" xml:space="preserve">
+    <value>Xml soubory</value>
+  </data>
+  <data name="valXmlProcessing" xml:space="preserve">
+    <value>Zpracování XML</value>
+  </data>
+</root>
